@@ -10,7 +10,13 @@ export async function fetchTopHeadlinesData() {
     }
 
     const response = await axios.get(
-      "https://real-time-news-data.p.rapidapi.com/top-headlines"
+      "https://real-time-news-data.p.rapidapi.com/top-headlines",
+      {
+        headers: {
+          "x-rapidapi-key": process.env.API_KEY,
+          "x-rapidapi-host": "real-time-news-data.p.rapidapi.com",
+        },
+      }
     );
 
     if (response.data.data.length === 0) {
@@ -37,6 +43,10 @@ export async function fetchTopicHeadlinesData(topic) {
       {
         params: {
           topic,
+        },
+        headers: {
+          "x-rapidapi-key": process.env.API_KEY,
+          "x-rapidapi-host": "real-time-news-data.p.rapidapi.com",
         },
       }
     );
