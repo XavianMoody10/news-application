@@ -1,26 +1,10 @@
-"use client";
-
 import Link from "next/link";
-import { useContext } from "react";
-import { SideNavigationContext } from "@/contexts/side-navigation-context";
-import { Squash as Hamburger } from "hamburger-react";
 
-export default function Header() {
-  const { isOpen, setIsOpen } = useContext(SideNavigationContext);
-
+export default function Footer() {
   return (
-    <header className=" bg-blue-950 flex items-center justify-between py-8 fixed top-0 w-full z-10">
-      <div className=" absolute left-3 z-50 xl:hidden">
-        <Hamburger
-          color="white"
-          size={25}
-          toggled={isOpen}
-          toggle={setIsOpen}
-        />
-      </div>
-
-      <nav className=" mx-auto hidden xl:block">
-        <ul className=" flex gap-8">
+    <footer className=" bg-blue-950 py-16">
+      <nav className=" w-[90%] max-w-[1300px] mx-auto">
+        <ul className=" flex flex-col gap-8 items-center min-[400px]:flex-wrap min-[400px]:flex-row min-[400px]:justify-center">
           <li>
             <Link
               href={"/"}
@@ -95,15 +79,6 @@ export default function Header() {
           </li>
         </ul>
       </nav>
-
-      <div className=" w-full max-w-[120px] absolute right-2 lg:right-5">
-        <Link
-          href={"/"}
-          className=" block bg-orange-600 text-white font-semibold w-full text-center py-2 rounded-md hover:bg-orange-400"
-        >
-          Subscribe
-        </Link>
-      </div>
-    </header>
+    </footer>
   );
 }
