@@ -2,6 +2,7 @@ import Header from "@/components/header";
 import { server } from "@/mocks/node";
 import axios from "axios";
 import Image from "next/image";
+import Link from "next/link";
 
 async function fetchData() {
   "use server";
@@ -12,6 +13,11 @@ async function fetchData() {
     const response = await axios.get(
       "https://real-time-news-data.p.rapidapi.com/top-headlines"
     );
+
+    if (response.data.data.length === 0) {
+      return { message: "No Results" };
+    }
+
     return { data: response.data?.data };
   } catch (error) {
     return { error: "Error getting data" };
@@ -79,17 +85,104 @@ export default async function Home() {
       <Header />
 
       <main>
-        {response.data ? (
+        {response.data && (
           <div className=" w-[90%] max-w-[1300px] mx-auto py-10 space-y-10 mt-24">
             <h1 className=" text-2xl font-extrabold">Top Stories</h1>
             <div className=" flex flex-col gap-16">{headlines}</div>
           </div>
-        ) : (
+        )}
+
+        {response.error && (
           <div className=" h-screen flex items-center justify-center text-2xl font-bold">
             {response.error}
           </div>
         )}
+
+        {response.message && (
+          <div className=" h-screen flex items-center justify-center text-2xl font-bold">
+            {response.message}
+          </div>
+        )}
       </main>
+
+      <footer className=" bg-blue-950 py-16">
+        <nav className=" w-[90%] max-w-[1300px] mx-auto">
+          <ul className=" flex flex-col gap-8 items-center min-[400px]:flex-wrap min-[400px]:flex-row min-[400px]:justify-center">
+            <li>
+              <Link
+                href={"/"}
+                className=" text-white font-semibold hover:underline"
+              >
+                Top Stories
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/headline/WORLD"}
+                className=" text-white font-semibold hover:underline"
+              >
+                World
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/headline/NATIONAL"}
+                className=" text-white font-semibold hover:underline"
+              >
+                National
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/headline/BUSINESS"}
+                className=" text-white font-semibold hover:underline"
+              >
+                Business
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/headline/TECHNOLOGY"}
+                className=" text-white font-semibold hover:underline"
+              >
+                Technology
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/headline/ENTERTAINMENT"}
+                className=" text-white font-semibold hover:underline"
+              >
+                Entertainment
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/headline/SPORTS"}
+                className=" text-white font-semibold hover:underline"
+              >
+                Sports
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/headline/SCIENCE"}
+                className=" text-white font-semibold hover:underline"
+              >
+                Science
+              </Link>
+            </li>
+            <li>
+              <Link
+                href={"/headline/HEALTH"}
+                className=" text-white font-semibold hover:underline"
+              >
+                Health
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </footer>
     </>
   );
 }

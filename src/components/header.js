@@ -10,12 +10,20 @@ export default function Header() {
               href={"/"}
               className=" text-white font-semibold hover:underline"
             >
+              Top Stories
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={"/headline/WORLD"}
+              className=" text-white font-semibold hover:underline"
+            >
               World
             </Link>
           </li>
           <li>
             <Link
-              href={"/"}
+              href={"/headline/NATIONAL"}
               className=" text-white font-semibold hover:underline"
             >
               National
@@ -23,7 +31,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href={"/"}
+              href={"/headline/BUSINESS"}
               className=" text-white font-semibold hover:underline"
             >
               Business
@@ -31,7 +39,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href={"/"}
+              href={"/headline/TECHNOLOGY"}
               className=" text-white font-semibold hover:underline"
             >
               Technology
@@ -39,7 +47,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href={"/"}
+              href={"/headline/ENTERTAINMENT"}
               className=" text-white font-semibold hover:underline"
             >
               Entertainment
@@ -47,7 +55,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href={"/"}
+              href={"/headline/SPORTS"}
               className=" text-white font-semibold hover:underline"
             >
               Sports
@@ -55,7 +63,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href={"/"}
+              href={"/headline/SCIENCE"}
               className=" text-white font-semibold hover:underline"
             >
               Science
@@ -63,7 +71,7 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href={"/"}
+              href={"/headline/HEALTH"}
               className=" text-white font-semibold hover:underline"
             >
               Health
