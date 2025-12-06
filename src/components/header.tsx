@@ -52,8 +52,8 @@ export default function Header() {
   });
 
   return (
-    <header className=" py-8">
-      <div className=" w-[90%] max-w-[1500px] mx-auto flex items-center justify-between gap-10 relative">
+    <header className=" sticky top-0 py-8 bg-white z-10">
+      <div className=" w-[90%] max-w-[1300px] mx-auto flex items-center justify-between gap-10 relative">
         <Image
           src={"/logo.png"}
           width={120}
@@ -79,19 +79,19 @@ export default function Header() {
         {debouncedSearchTerm && (
           <>
             {data.length > 0 && !errorMessage && (
-              <div className=" absolute right-0 top-10 border border-gray-200 h-[500px] w-full max-w-[700px] flex flex-col gap-10 overflow-y-auto p-5">
+              <div className=" bg-white absolute right-0 top-10 border border-gray-200 h-[500px] w-full max-w-[700px] flex flex-col gap-10 overflow-y-auto p-5">
                 {results}
               </div>
             )}
 
             {data.length === 0 && !errorMessage && (
-              <div className=" absolute right-0 top-10 border border-gray-200 h-[500px] w-full max-w-[700px] flex flex-col items-center justify-center font-bold text-2xl">
+              <div className=" bg-white absolute right-0 top-10 border border-gray-200 h-[100px] w-full max-w-[700px] flex flex-col items-center justify-center font-bold text-2xl">
                 No Results
               </div>
             )}
 
             {errorMessage && (
-              <div className=" absolute right-0 top-10 border border-gray-200 h-[500px] w-full max-w-[700px] flex flex-col items-center justify-center font-bold text-2xl text-red-600">
+              <div className=" bg-white absolute right-0 top-10 border border-gray-200 h-[100px] w-full max-w-[700px] flex flex-col items-center justify-center font-bold text-2xl text-red-600">
                 {errorMessage}
               </div>
             )}
